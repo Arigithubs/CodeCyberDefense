@@ -3,38 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>CodeCyberDefense</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Tower Defense Game</title>
 </head>
 <body>
-    <div id="header">
-        <h1>CodeCyberDefense</h1>
-        <!-- Add any additional header content or information -->
-    </div>
+    <header>
+        <h1>Tower Defense Game</h1>
+    </header>
 
-    <div id="game-container">
-        <!-- Existing game container content -->
-        <!-- For example, a dynamically generated grid -->
-        <div class="game-element"></div>
-        <div class="game-element"></div>
-        <!-- ... (repeat for other elements) ... -->
-    </div>
+    <main>
+        <div id="game-container" class="game-container">
+            <!-- Your grid elements go here -->
+            <!-- Example: You can add elements with the class "game-element" -->
+            <!-- <div class="game-element"></div> -->
+        </div>
+        
+        <div id="ui-container-bottom" class="ui-container">
+            <div class="tower-option" data-tower-type="basic">Basic Tower</div>
+            <div class="tower-option" data-tower-type="rapid">Rapid Tower</div>
+            <div class="tower-option" data-tower-type="splash">Splash Tower</div>
+        </div>
+    </main>
 
-    <div id="ui-container-bottom">
-        <div class="tower-option" data-tower-type="basic">Basic Tower</div>
-        <!-- Add more tower options as needed -->
-    </div>
+    <aside>
+        <div id="game-info">
+            <h2>Game Info</h2>
+            <p id="description">Welcome to the Tower Defense Game! Defend against waves of enemies by strategically placing towers.</p>
+        </div>
+        
+        <div id="game-stats">
+            <h2>Game Stats</h2>
+            <ul>
+                <li>Wave: <span id="wave-number">1</span></li>
+                <li>Enemies Remaining: <span id="enemies-remaining">10</span></li>
+                <li>Money: <span id="player-money">$100</span></li>
+            </ul>
+        </div>
+    </aside>
 
-    <div id="info-container">
-        <p>Game Information or Stats</p>
-        <!-- Add any additional information or stats about the game -->
-    </div>
+    <footer>
+        <p>&copy; 2023 Tower Defense Game</p>
+    </footer>
 
-    <div id="footer">
-        <p>&copy; 2023 CodeCyberDefense. All rights reserved.</p>
-        <!-- Add any additional footer content or links -->
-    </div>
-
-    <script src="js/game.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
