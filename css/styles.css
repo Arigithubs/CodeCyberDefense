@@ -20,4 +20,12 @@ body {
     height: 40px;
     background-color: #444;  /* Adjust the color */
     border: 1px solid #666;  /* Border for visual separation */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    user-select: none;  /* Disable text selection */
 }
+
+/* Add more styles for different game elements if needed */
