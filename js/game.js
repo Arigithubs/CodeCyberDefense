@@ -55,17 +55,46 @@ function placeTower(targetElement) {
     towerElement.classList.add('tower');
     towerElement.textContent = 'T';  // Just a placeholder, you can add graphics
 
-    // Add the tower to the clicked element
-    targetElement.appendChild(towerElement);
+    // Set tower characteristics based on the selected tower type
+    let towerDamage, towerAttackSpeed, towerRange;
+
+    switch (selectedTowerType) {
+        case 'basic':
+            towerDamage = 10;
+            towerAttackSpeed = 1;
+            towerRange = 3;
+            break;
+        case 'rapid':
+            towerDamage = 5;
+            towerAttackSpeed = 2;
+            towerRange = 2;
+            break;
+        case 'splash':
+            towerDamage = 15;
+            towerAttackSpeed = 1.5;
+            towerRange = 2.5;
+            break;
+        // Add more cases for additional tower types
+        default:
+            towerDamage = 0;
+            towerAttackSpeed = 0;
+            towerRange = 0;
+    }
 
     // Store tower information (add more details as needed)
     const towerInfo = {
         type: selectedTowerType,
+        damage: towerDamage,
+        attackSpeed: towerAttackSpeed,
+        range: towerRange,
         level: 1,
         position: targetElement.dataset.position,  // Example: store position data
     };
 
     // Additional logic for tower placement or upgrades can be added here
+
+    // Add the tower to the clicked element
+    targetElement.appendChild(towerElement);
 
     // Clear the selected tower
     selectedTower = null;
