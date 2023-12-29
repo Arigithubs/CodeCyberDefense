@@ -4,9 +4,10 @@ const gameContainer = document.getElementById('game-container');
 // Get the UI container element
 const uiContainer = document.getElementById('ui-container-bottom');
 
-// Initialize a variable to store tower information
+// Initialize variables to store tower and enemy information
 let selectedTower = null;
 let selectedTowerType = null;
+let enemies = [];
 
 // Add a click event listener to the game container
 gameContainer.addEventListener('click', handleGameClick);
@@ -121,3 +122,106 @@ function clearHighlight() {
         element.classList.remove('highlighted');
     });
 }
+
+// Function to spawn enemies
+function spawnEnemy() {
+    const enemyElement = document.createElement('div');
+    enemyElement.classList.add('enemy');
+    enemyElement.textContent = 'E';  // Just a placeholder, you can add graphics
+
+    // Set enemy characteristics (customize as needed)
+    const enemyInfo = {
+        health: 20,
+        speed: 1,
+        reward: 10,
+        position: 'start',  // Example: starting position
+    };
+
+    // Append the enemy to the starting position
+    const startCell = document.querySelector('[data-position="start"]');
+    startCell.appendChild(enemyElement);
+
+    // Move the enemy along the path
+    moveEnemy(enemyElement, enemyInfo);
+}
+
+// Function to move enemies along the path
+function moveEnemy(enemyElement, enemyInfo) {
+    const path = getPath();  // Replace with your pathfinding logic
+
+    let currentPathIndex = 0;
+
+    function move() {
+        // Check if the enemy reached the end of the path
+        if (currentPathIndex === path.length) {
+            enemyElement.remove();  // Remove the enemy when it reaches the end
+            // Implement logic for player damage or other game events if needed
+        } else {
+            const currentCell = path[currentPathIndex];
+            const nextCell = path[currentPathIndex + 1];
+
+            // Calculate the distance between cells
+            const distanceX = nextCell.x - currentCell.x;
+            const distanceY = nextCell.y - currentCell.y;
+
+            // Move the enemy one step closer to the next cell
+            enemyElement.style.transform = `translate(${distanceX * 40}px, ${distanceY * 40}px)`;
+
+            // Update the position in the enemyInfo
+            enemyInfo.position = nextCell.position;
+
+            // Move to the next cell in the path
+            currentPathIndex++;
+
+            // Schedule the next move
+            setTimeout(move, 1000 / enemyInfo.speed);  // Adjust speed as needed
+        }
+    }
+
+    // Start the movement
+    move();
+
+    // Add the enemy to the array for tracking
+    enemies.push({
+        element: enemyElement,
+        info: enemyInfo
+    });
+}
+
+// Example function to get the path (replace with your pathfinding logic)
+function getPath() {
+    // This is a simple example; replace it with your pathfinding logic
+    const path = [
+        { x: 0, y: 0, position: 'start' },
+        { x: 1, y: 0, position: 'path' },
+        { x: 2, y: 0, position: 'path' },
+        // ... continue with the path ...
+        { x: 9, y: 9, position: 'end' }
+    ];
+
+    return path;
+}
+
+// Function to handle tower-enemy interaction (to be implemented)
+function handleTowerEnemyInteraction() {
+    // Implement logic for towers attacking enemies
+    // Check if any tower has enemies within its range and attack them
+}
+
+// ... (existing code) ...
+
+// Function to update the game state (to be called in a game loop)
+function updateGameState() {
+    handleTowerEnemyInteraction();
+    // Add any additional logic for game state updates
+}
+
+// Example: Set up a game loop
+function gameLoop() {
+    updateGameState();
+    // Schedule the next iteration of the game loop
+    requestAnimationFrame(gameLoop);
+}
+
+// Start the game loop
+gameLoop();
