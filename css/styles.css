@@ -28,4 +28,7 @@ body {
     user-select: none;  /* Disable text selection */
 }
 
-/* Add more styles for different game elements if needed */
+.highlighted {
+    border: 2px solid yellow;
+}
+
