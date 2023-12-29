@@ -10,5 +10,14 @@ body {
 }
 
 #game-container {
-    /* Add styles for your game container */
+    display: grid;
+    grid-template-columns: repeat(10, 40px);  /* Adjust as needed */
+    gap: 5px;  /* Adjust the gap between elements */
+}
+
+.game-element {
+    width: 40px;  /* Adjust the size of each element */
+    height: 40px;
+    background-color: #444;  /* Adjust the color */
+    border: 1px solid #666;  /* Border for visual separation */
 }
