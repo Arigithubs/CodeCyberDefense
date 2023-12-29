@@ -9,26 +9,40 @@ body {
     color: #fff;
 }
 
+#ui-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tower-option {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
 #game-container {
     display: grid;
-    grid-template-columns: repeat(10, 40px);  /* Adjust as needed */
-    gap: 5px;  /* Adjust the gap between elements */
+    grid-template-columns: repeat(10, 40px);
+    gap: 5px;
 }
 
 .game-element {
-    width: 40px;  /* Adjust the size of each element */
+    width: 40px;
     height: 40px;
-    background-color: #444;  /* Adjust the color */
-    border: 1px solid #666;  /* Border for visual separation */
+    background-color: #444;
+    border: 1px solid #666;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 0.8rem;
     font-weight: bold;
-    user-select: none;  /* Disable text selection */
+    user-select: none;
 }
 
 .highlighted {
     border: 2px solid yellow;
 }
-
