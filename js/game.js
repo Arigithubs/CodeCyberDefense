@@ -1,6 +1,7 @@
+// Your game logic will go here
 // Start by selecting the game container and UI container
 const gameContainer = document.getElementById('game-container');
-const uiContainer = document.getElementById('ui-container-bottom');
+const uiContainer = document.getElementById('ui-container');
 
 // Select game info and stats elements
 const descriptionElement = document.getElementById('description');
