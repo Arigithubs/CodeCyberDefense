@@ -1,11 +1,18 @@
 // Get the game container element
 const gameContainer = document.getElementById('game-container');
 
+// Get the UI container element
+const uiContainer = document.getElementById('ui-container');
+
 // Initialize a variable to store tower information
 let selectedTower = null;
+let selectedTowerType = null;
 
 // Add a click event listener to the game container
 gameContainer.addEventListener('click', handleGameClick);
+
+// Add a click event listener to the UI container
+uiContainer.addEventListener('click', handleTowerOptionClick);
 
 // Function to handle game clicks
 function handleGameClick(event) {
@@ -25,6 +32,22 @@ function handleGameClick(event) {
     }
 }
 
+// Function to handle tower option clicks
+function handleTowerOptionClick(event) {
+    // Get the clicked element
+    const clickedElement = event.target;
+
+    // Check if the clicked element is a tower option
+    if (clickedElement.classList.contains('tower-option')) {
+        // Set the selected tower type
+        selectedTowerType = clickedElement.dataset.towerType;
+
+        // Clear highlighting and selected tower in the game container
+        clearHighlight();
+        selectedTower = null;
+    }
+}
+
 // Function to place a tower on the clicked element
 function placeTower(targetElement) {
     // Example: Create a tower element (you can customize this)
@@ -37,7 +60,7 @@ function placeTower(targetElement) {
 
     // Store tower information (add more details as needed)
     const towerInfo = {
-        type: 'basic',
+        type: selectedTowerType,
         level: 1,
         position: targetElement.dataset.position,  // Example: store position data
     };
@@ -69,8 +92,3 @@ function clearHighlight() {
         element.classList.remove('highlighted');
     });
 }
-
-// Example: Add styles for the highlighted class in your CSS
-// .highlighted {
-//     border: 2px solid yellow;
-// }
