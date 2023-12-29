@@ -1,4 +1,3 @@
-// Your game logic will go here
 // Start by selecting the game container and UI container
 const gameContainer = document.getElementById('game-container');
 const uiContainer = document.getElementById('ui-container');
@@ -137,27 +136,20 @@ function getTowerCost(towerType) {
     }
 }
 
-// Example: Function to spawn enemies (replace with your logic)
-function spawnEnemies() {
-    // You need to implement enemy spawning logic here
-    // For simplicity, let's assume enemies are spawned instantly
-    setTimeout(() => {
-        // Decrease enemies remaining
-        enemiesRemaining--;
-
-        // Update game stats
-        updateGameStats();
-
-        // Continue spawning enemies until none remain
-        if (enemiesRemaining > 0) {
-            spawnEnemies();
-        } else {
-            // All enemies spawned, start the next wave
-            alert("Wave Complete!");
-            startWave();
+// Function to create the game grid
+function createGameGrid() {
+    for (let row = 0; row < 10; row++) {
+        for (let col = 0; col < 10; col++) {
+            const cell = document.createElement('div');
+            cell.classList.add('game-element');
+            cell.setAttribute('id', `cell-${row}-${col}`);
+            gameContainer.appendChild(cell);
         }
-    }, 1000); // Delay between enemy spawns (adjust as needed)
+    }
 }
+
+// Create the game grid on page load
+createGameGrid();
 
 // Start the first wave
 startWave();
