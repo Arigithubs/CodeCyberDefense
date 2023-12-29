@@ -15,32 +15,24 @@
     <main>
         <div id="game-container" class="game-container">
             <!-- Your grid elements go here -->
-            <!-- Example: You can add elements with the class "game-element" -->
-            <!-- <div class="game-element"></div> -->
         </div>
         
-        <div id="ui-container-bottom" class="ui-container">
-            <div class="tower-option" data-tower-type="basic">Basic Tower</div>
-            <div class="tower-option" data-tower-type="rapid">Rapid Tower</div>
-            <div class="tower-option" data-tower-type="splash">Splash Tower</div>
+        <div id="ui-container" class="ui-container">
+            <div id="game-info" class="info-container">
+                <h2>Game Info</h2>
+                <p id="description">Welcome to the Tower Defense Game! Defend against waves of enemies by strategically placing towers.</p>
+            </div>
+            
+            <div id="game-stats" class="info-container">
+                <h2>Game Stats</h2>
+                <ul>
+                    <li>Wave: <span id="wave-number">1</span></li>
+                    <li>Enemies Remaining: <span id="enemies-remaining">0</span></li>
+                    <li>Money: <span id="player-money">$100</span></li>
+                </ul>
+            </div>
         </div>
     </main>
-
-    <aside>
-        <div id="game-info">
-            <h2>Game Info</h2>
-            <p id="description">Welcome to the Tower Defense Game! Defend against waves of enemies by strategically placing towers.</p>
-        </div>
-        
-        <div id="game-stats">
-            <h2>Game Stats</h2>
-            <ul>
-                <li>Wave: <span id="wave-number">1</span></li>
-                <li>Enemies Remaining: <span id="enemies-remaining">10</span></li>
-                <li>Money: <span id="player-money">$100</span></li>
-            </ul>
-        </div>
-    </aside>
 
     <footer>
         <p>&copy; 2023 Tower Defense Game</p>
