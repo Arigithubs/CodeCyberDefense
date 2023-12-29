@@ -2,7 +2,7 @@
 const gameContainer = document.getElementById('game-container');
 
 // Get the UI container element
-const uiContainer = document.getElementById('ui-container');
+const uiContainer = document.getElementById('ui-container-bottom');
 
 // Initialize a variable to store tower information
 let selectedTower = null;
