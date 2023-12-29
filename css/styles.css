@@ -3,10 +3,24 @@ body {
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 100vh;
     margin: 0;
+}
+
+header, footer {
+    background-color: #2c3e50;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .game-container {
@@ -36,19 +50,20 @@ body {
     font-size: 20px;
 }
 
-.enemy {
-    color: #e74c3c;
-    font-size: 20px;
+.ui-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
 }
 
-.ui-container {
-    margin-top: 10px;
-    display: flex;
-    justify-content: space-around;
+.info-container {
+    margin-bottom: 20px;
 }
 
 .tower-option {
     padding: 10px;
+    margin-bottom: 10px;
     border: 2px solid #3498db;
     border-radius: 5px;
     cursor: pointer;
