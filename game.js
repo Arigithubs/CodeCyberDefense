@@ -151,5 +151,27 @@ function createGameGrid() {
 // Create the game grid on page load
 createGameGrid();
 
+// Function to spawn enemies
+function spawnEnemies() {
+    // You need to implement enemy spawning logic here
+    // For simplicity, let's assume enemies are spawned instantly
+    setTimeout(() => {
+        // Decrease enemies remaining
+        enemiesRemaining--;
+
+        // Update game stats
+        updateGameStats();
+
+        // Continue spawning enemies until none remain
+        if (enemiesRemaining > 0) {
+            spawnEnemies();
+        } else {
+            // All enemies spawned, start the next wave
+            alert("Wave Complete!");
+            startWave();
+        }
+    }, 1000); // Delay between enemy spawns (adjust as needed)
+}
+
 // Start the first wave
 startWave();
